@@ -38,6 +38,14 @@ int print_blockinfo(block* blk, block* prev_blk) {
 
     return 0;
 }
+int print_blockchaininfo(block* blkchn[], int size) {
+    for (int i = 0; i < size; ++i) {
+        if (i == 0) print_genblockinfo(blkchn[i]);
+        else        print_blockinfo(blkchn[i], blkchn[i-1]);
+    }
+
+    return 0;
+}
 int obtain_walltime(char* walltime, time_t rawtime) {
     strftime(walltime, 20, "%Y-%m-%d %H:%M:%S", localtime(&rawtime));
     return 0;

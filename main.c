@@ -3,6 +3,7 @@
 #include <string.h>
 
 #include "block.h"
+#include "blockchain.h"
 #include "utils.h"
 
 // TODO: Many safety considerations are being ignored for the sake of expediency. These should ...
@@ -20,10 +21,8 @@ int main(int argc, char* argv[]) {
         blk_list[i] = create_block("sample text", blk_list[i-1]);
     }
 
-    for (int i = 0; i < MAX_SIZE; ++i) {
-        if (i == 0) print_genblockinfo(blk_list[i]);
-        else        print_blockinfo(blk_list[i], blk_list[i-1]);
-    }
+    print_blockchaininfo(blk_list, MAX_SIZE);
+    if (validate_blockchain(blk_list, MAX_SIZE)) printf("\nu dun goofed boi\n\n");
 
     for (int i = 0; i < MAX_SIZE; ++i) {
         scrap_block(blk_list[i]);

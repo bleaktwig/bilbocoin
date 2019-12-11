@@ -80,22 +80,25 @@ int init_block(block* blk, block* prev_blk, char* in_data) {
     return 0;
 }
 int validate_genesis_block(block* blk) {
-    if (blk->index != 0) return 1;
+    if (blk->index != 0)
+        return 1; // index doesn't make sense.
     uint8_t tmp_hash[32];
     compute_genesis_hash(tmp_hash, blk);
-    for (int i = 0; i < 32; ++i) if (tmp_hash[i] != blk->hash[i]) return 3;
+    for (int i = 0; i < 32; ++i) if (tmp_hash[i] != blk->hash[i])
+        return 3; // hash of block is incorrect.
 
     return 0;
 }
 int validate_block(block* blk, block* prev_blk) {
-    if (blk->index != prev_blk->index+1) return 1;
-    for (int i = 0; i < 32; ++i) if (blk->prev_hash[i] != prev_blk->hash[i]) return 2;
+    if (blk->index != prev_blk->index+1)
+        return 1; // index doesn't make sense.
+    for (int i = 0; i < 32; ++i) if (blk->prev_hash[i] != prev_blk->hash[i])
+        return 2; // hash of previous block doesn't match.
 
     uint8_t tmp_hash[32];
     compute_hash(tmp_hash, blk);
-    for (int i = 0; i < 32; ++i) if (tmp_hash[i] != blk->hash[i]) {
-        return 3;
-    }
+    for (int i = 0; i < 32; ++i) if (tmp_hash[i] != blk->hash[i])
+        return 3; // hash of block is incorrect.
 
     return 0;
 }
