@@ -12,6 +12,7 @@ int MAX_SIZE = 6;
 
 int main(int argc, char* argv[]) {
 
+    // Create block list
     block* blk_list[MAX_SIZE];
 
     blk_list[0] = create_genesis_block("genesis block");
@@ -25,7 +26,7 @@ int main(int argc, char* argv[]) {
     }
 
     for (int i = 0; i < MAX_SIZE; ++i) {
-        free(blk_list[i]);
+        scrap_block(blk_list[i]);
     }
 
     return 0;

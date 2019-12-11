@@ -25,5 +25,6 @@ int init_genesis_block(block* blk, char* in_data);
 int init_block(block* blk, block* prev_blk, char* in_data);
 int validate_genesis_block(block* blk);
 int validate_block(block* blk, block* prev_blk);
+int scrap_block(block* blk);
 
 #endif

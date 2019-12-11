@@ -13,11 +13,11 @@ block* create_block(char in_data[], block* prev_blk) {
     return blk;
 }
 int compute_genesis_hash(uint8_t hash[], block* blk) {
-    char str[1024];
+    char str[1024] = "";
 
     { // Generate hashed string
-        char str_idx[256]; // TODO: I probably need less bytes than this tbh
-        char str_time[256]; // TODO: I probably need less bytes than this tbh
+        char str_idx[256] = ""; // TODO: I probably need less bytes than this tbh
+        char str_time[256] = ""; // TODO: I probably need less bytes than this tbh
 
         sprintf(str_idx, "%d", blk->index);
         sprintf(str_time, "%ld", blk->time);
@@ -32,12 +32,12 @@ int compute_genesis_hash(uint8_t hash[], block* blk) {
     return 0;
 }
 int compute_hash(uint8_t hash[], block* blk) {
-    char str[1024];
+    char str[1024] = "";
 
     { // Generate hashed string
-        char str_idx[256]; // TODO: I probaby need less bytes than this tbh
-        char str_time[256]; // TODO: I probaby need less bytes than this tbh
-        char str_prev_hash[64];
+        char str_idx[256] = ""; // TODO: I probaby need less bytes than this tbh
+        char str_time[256] = ""; // TODO: I probaby need less bytes than this tbh
+        char str_prev_hash[64] = "";
 
         sprintf(str_idx, "%d", blk->index);
         sprintf(str_time, "%ld", blk->time);
@@ -96,6 +96,11 @@ int validate_block(block* blk, block* prev_blk) {
     for (int i = 0; i < 32; ++i) if (tmp_hash[i] != blk->hash[i]) {
         return 3;
     }
+
+    return 0;
+}
+int scrap_block(block* blk) {
+    free(blk);
 
     return 0;
 }
