@@ -19,9 +19,11 @@ typedef struct {
 
 block* create_genesis_block(char in_data[]);
 block* create_block(char in_data[], block* prev_blk);
-int compute_genesis_hash(uint8_t hash[], int idx, time_t time, char data[]);
-int compute_hash(uint8_t hash[], int idx, time_t time, char data[], uint8_t prev_hash[]);
+int compute_genesis_hash(uint8_t hash[], block* blk);
+int compute_hash(uint8_t hash[], block* blk);
 int init_genesis_block(block* blk, char* in_data);
 int init_block(block* blk, block* prev_blk, char* in_data);
+int validate_genesis_block(block* blk);
+int validate_block(block* blk, block* prev_blk);
 
 #endif
