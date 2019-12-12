@@ -1,4 +1,4 @@
-#include "utils.h"
+#include "../include/utils.h"
 
 int print_hash256(uint8_t hash[]) {
     for (int i = 0; i < 32; ++i) {

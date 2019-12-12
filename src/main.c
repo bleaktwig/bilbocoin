@@ -2,9 +2,9 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "block.h"
-#include "blockchain.h"
-#include "utils.h"
+#include "../include/block.h"
+#include "../include/chain.h"
+#include "../include/utils.h"
 
 // TODO: Many safety considerations are being ignored for the sake of expediency. These should ...
 //       be addressed after a minimal working model is provided.

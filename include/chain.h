@@ -1,5 +1,5 @@
-#ifndef BILBO_BLOCKCHAIN_H
-#define BILBO_BLOCKCHAIN_H
+#ifndef BILBO_CHAIN_H
+#define BILBO_CHAIN_H
 
 #include <stdint.h>
 

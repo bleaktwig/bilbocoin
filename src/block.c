@@ -1,4 +1,4 @@
-#include "block.h"
+#include "../include/block.h"
 
 block* create_genesis_block(char in_data[]) {
     block* blk = (block*) malloc(sizeof(block));

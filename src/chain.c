@@ -1,4 +1,4 @@
-#include "blockchain.h"
+#include "../include/chain.h"
 
 int validate_blockchain(block* blkchn[], int size) {
     if (size == 0)

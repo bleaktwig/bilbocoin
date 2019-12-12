@@ -7,7 +7,7 @@
 #include <string.h>
 #include <time.h>
 
-#include "sha-256.h"
+#include "sha256.h"
 
 typedef struct {
     int index;
